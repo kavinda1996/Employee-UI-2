@@ -1,0 +1,23 @@
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Department</th>
+        <th scope="col">Registered On</th>
+        <th scope="col">Last Updated On</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let employee of listOfEmployees">
+      <tr>
+        <td scope="row">{{employee.id}}</td>
+        <td>{{employee.name}}</td>
+        <td>{{employee.email}}</td>
+        <td>{{employee.department}}</td>
+        <td>{{employee.createdAt | date: 'yyyy-MM-dd HH:mm'}}</td>
+        <td>{{employee.updatedAt | date: 'yyyy-MM-dd HH:mm'}}</td>
+      </tr>
+    </tbody>
+  </table>
+  

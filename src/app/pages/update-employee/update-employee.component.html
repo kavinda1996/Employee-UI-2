@@ -1,0 +1,62 @@
+<div class="container py-5 h-100">
+    <div class="row justify-content-center align-items-center h-100">
+      <div class="col-12 col-lg-9 col-xl-7">
+        <div
+          class="card p-5 shadow-2-strong card-registration"
+          style="border-radius: 15px"
+        >
+          <div class="card-body p-4 p-md-5 rounded-4">
+            <h3 class="mb-4 pb-2 pb-md-0 mb-md-5 text-center text-white">
+              Update Employee
+            </h3>
+            <form>
+              <div class="row mb-4">
+                <select #searchType class="form-select" (change)="onSelected(searchType.value)">
+                  <option value="" disabled selected>Id</option>
+                  <option *ngFor="let employee of listOfEmployees" value="{{employee.id}}">{{employee.id}}</option>
+                </select>
+              </div>
+              <div class="row mb-4">
+                <div data-mdb-input-init class="form-outline">
+                  <input
+                    type="text"
+                    id="name"
+                    class="form-control form-control-lg w-100 mb-3"
+                    placeholder="Name"
+                    autocomplete="off"
+                    value="{{employee?.name}}"
+                  />
+                  <input
+                    type="text"
+                    id="email"
+                    class="form-control form-control-lg w-100 mb-3"
+                    placeholder="Email"
+                    autocomplete="off"
+                    value="{{employee?.email}}"
+                  />
+                  <input
+                    type="text"
+                    id="department"
+                    class="form-control form-control-lg w-100"
+                    placeholder="Department"
+                    autocomplete="off"
+                    value="{{employee?.department}}"
+                  />
+                </div>
+              </div>
+              <div class="text-center">
+                <button
+                  class="btn btn-primary border-0"
+                  id="submitBtn"
+                  (click)="submitForm($event)"
+                >
+                  Submit
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

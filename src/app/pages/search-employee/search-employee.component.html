@@ -1,0 +1,57 @@
+<div class="container mt-4">
+    <h2 class="text-center mb-4">Search Employee</h2>
+  
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="mb-3">
+          <label for="searchType" class="form-label">Search by:</label>
+          <select id="searchType" class="form-select" [(ngModel)]="searchType">
+            <option value="id">ID</option>
+            <option value="name">Name</option>
+            <option value="email">Email</option>
+            <option value="department">Department</option>
+          </select>
+        </div>
+  
+        <div class="mb-3">
+          <input
+            type="text"
+            class="form-control"
+            [(ngModel)]="searchValue"
+            placeholder="Enter search value"
+          />
+        </div>
+  
+        <div class="d-grid gap-2">
+          <button class="btn btn-primary" (click)="searchEmployee()">
+            Search
+          </button>
+        </div>
+      </div>
+    </div>
+  
+    <div *ngIf="employees.length > 0" class="mt-4">
+      <h3 class="text-center">Results:</h3>
+      <div class="row justify-content-center">
+        <div class="col-md-8">
+          <div class="card mb-3" *ngFor="let employee of employees">
+            <div class="card-body">
+              <h5 class="card-text"><strong>ID:</strong> {{ employee.id }}</h5>
+              <p class="card-text"><strong>Name:</strong> {{ employee.name }}</p>
+              <p class="card-text">
+                <strong>Email:</strong> {{ employee.email }}
+              </p>
+              <p class="card-text">
+                <strong>Department:</strong> {{ employee.department }}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <div *ngIf="employees.length === 0" class="text-center mt-4 text-danger">
+      <p>No results found.</p>
+    </div>
+  </div>
+  
